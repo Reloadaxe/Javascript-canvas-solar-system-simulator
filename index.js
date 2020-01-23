@@ -7,7 +7,7 @@ var planets = [];
 var sizeRatio = 2 / 4878;
 
 var intervalNb = 10;
-var daybySec = 30; // days number by second
+var daybySec = 1; // days number by second
 var ratioDaysSec = 1 / daybySec;
 
 
@@ -28,6 +28,9 @@ planets.push(moon);
 
 var mars = new Planet(95, 12756 * sizeRatio, "red", 687, sun);
 planets.push(mars);
+
+var deimos = new Planet(7, 1, "gray", 1, mars);
+planets.push(deimos);
 
 var jupiter = new Planet(170, 142700 * sizeRatio, "yellow", 11 * 365 + 315, sun);
 planets.push(jupiter);
@@ -52,7 +55,7 @@ update = () => {
     });
     context.fillStyle = "white";
     context.font = "30px Arial";
-    context.fillText(daybySec + " days / second", 10, 40);
+    context.fillText(daybySec + " day"+(daybySec <= 1 ? "" : "s")+" / second", 10, 40);
 }
 
 setInterval(update, intervalNb);
